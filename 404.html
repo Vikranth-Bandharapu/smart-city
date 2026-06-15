@@ -3,195 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Stackly Smart City</title>
-    <link rel="stylesheet" href="404.css">
+    <title>404 Page Not Found | UrbanNexus</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<style>
-    *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
+<body class="error-page">
 
-body{
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0b3d91,#02152f);
-    overflow:hidden;
-    position:relative;
-}
-
-/* Background circles */
-body::before,
-body::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    filter:blur(100px);
-}
-
-body::before{
-    width:300px;
-    height:300px;
-    background:#00bfff;
-    top:-100px;
-    left:-100px;
-}
-
-body::after{
-    width:350px;
-    height:350px;
-    background:#4f46e5;
-    bottom:-100px;
-    right:-100px;
-}
-
-.glass-card{
-    width:90%;
-    max-width:650px;
-    padding:50px;
-    text-align:center;
-    color:#fff;
-
-    background:rgba(255,255,255,0.1);
-    border:1px solid rgba(255,255,255,0.2);
-    border-radius:30px;
-
-    backdrop-filter:blur(25px);
-    -webkit-backdrop-filter:blur(25px);
-
-    box-shadow:
-        0 8px 32px rgba(0,0,0,0.35),
-        inset 0 1px 1px rgba(255,255,255,0.2);
-
-    animation:fadeUp 1s ease;
-}
-
-.icon{
-    font-size:60px;
-    margin-bottom:20px;
-}
-
-.glass-card h1{
-    font-size:130px;
-    line-height:1;
-    color:#7dd3fc;
-}
-
-.glass-card h2{
-    font-size:35px;
-    margin:20px 0;
-}
-
-.glass-card p{
-    color:#e2e8f0;
-    line-height:1.8;
-    margin-bottom:35px;
-}
-
-.btn-group{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.btn{
-    padding:14px 35px;
-    text-decoration:none;
-    border-radius:50px;
-    background:rgba(255,255,255,0.2);
-    color:#fff;
-    border:1px solid rgba(255,255,255,0.3);
-    transition:0.4s;
-    cursor:pointer;
-}
-
-.secondary{
-    background:rgba(255,255,255,0.1);
-}
-
-.btn:hover{
-    transform:translateY(-5px);
-    background:rgba(255,255,255,0.3);
-}
-
-.status{
-    margin-top:35px;
-    padding:15px;
-    background:rgba(255,255,255,0.08);
-    border-radius:15px;
-}
-
-.dot{
-    width:10px;
-    height:10px;
-    background:#00ff88;
-    border-radius:50%;
-    display:inline-block;
-    margin-right:10px;
-    animation:pulse 1s infinite;
-}
-
-@keyframes pulse{
-    50%{
-        transform:scale(1.5);
-    }
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-@media(max-width:768px){
-    .glass-card{
-        padding:35px 20px;
-    }
-
-    .glass-card h1{
-        font-size:90px;
-    }
-
-    .glass-card h2{
-        font-size:28px;
-    }
-}
-</style>
-<body>
-
-<div class="glass-card">
-    <div class="icon">🏛️</div>
-
-    <h1>404</h1>
-    <h2>Page Not Found</h2>
-
-    <p>
-        The page you are looking for doesn't exist or has been moved.
-        Please return to the official Stackly Smart City Portal.
-    </p>
-
-    <div class="btn-group">
-        <a href="index.html" class="btn">🏠 Home</a>
-        <button onclick="history.back()" class="btn secondary">
-            ← Go Back
-        </button>
+    <div class="error-container glass-card" style="padding: 4rem 3rem;">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">Oops! The page you're looking for doesn't exist.</p>
+        
+        <div style="margin-top: 1rem;">
+            <a href="index.html" class="btn btn-primary go-home-btn" id="home-btn"><i data-lucide="home"></i> Go to Home</a>
+        </div>
     </div>
 
-    <div class="status">
-        <span class="dot"></span>
-        Smart City Services Operational
-    </div>
-</div>
-
+    <!-- Scripts -->
+    <script src="main.js"></script>
 </body>
 </html>

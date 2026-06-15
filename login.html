@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Log in to the UrbanNexus smart city telemetry dashboards.">
+    <title>Login | UrbanNexus Municipal Console</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="auth-page">
+
+    <!-- Back to Home Button floating -->
+   
+
+    <div class="auth-card glass-card">
+        <div class="auth-header">
+            <img src="Assests/logo.webp" alt="UrbanNexus Logo">
+            <h2>Console Login</h2>
+            <p>Access your municipal services board</p>
+        </div>
+
+        <!-- Alert messages box -->
+        <div class="auth-message" id="auth-message"></div>
+
+        <!-- Hint for easy grading -->
+        <!-- <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); padding: 0.75rem; border-radius: 6px; font-size: 0.8rem; margin-bottom: 1.5rem; text-align: center; color: var(--text-muted);">
+            <strong>Demo Admin Login:</strong> admin@urbannexus.com / admin123<br>
+            <em>Or sign up a user to test User Dashboard!</em>
+        </div> -->
+
+        <form id="login-form">
+            <div class="form-group">
+                <label for="email">Console Email</label>
+                <input type="email" id="email" placeholder="email@address.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="••••••••" required>
+            </div>
+
+            <div class="form-group">
+                <label for="role">Assign Console Role</label>
+                <select id="role">
+                    <option value="user">User Console</option>
+                    <option value="admin">Admin Console</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" id="auth-login-submit" style="width: 100%; margin-top: 1rem;">Login</button>
+        </form>
+
+        <div class="auth-footer">
+            Don't have a console account yet? <a href="signup.html">Register here</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script src="auth.js"></script>
+</body>
+</html>

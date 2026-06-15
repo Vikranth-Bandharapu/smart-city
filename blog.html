@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse UrbanNexus research papers, news, and technical reports on IoT architectures, clean energy routing, and smart mobility systems.">
+    <title>Smart City Resources & Blog | UrbanNexus</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Sticky Header & Navbar -->
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo" aria-label="stackly Home">
+                <img src="Assests/logo.webp" alt="stackly Logo">
+                
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <!-- Mobile only links -->
+                <li class="mobile-only-btn"><a href="login.html" class="btn btn-secondary" id="nav-login-btn-mobile">Login</a></li>
+                <li class="mobile-only-btn"><a href="signup.html" class="btn btn-primary" id="nav-signup-btn-mobile">Sign Up</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-link" id="nav-login-btn">Login</a>
+                <a href="signup.html" class="btn btn-primary" id="nav-signup-btn">Sign Up</a>
+            </div>
+
+            <button class="hamburger" aria-expanded="false" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header Hero -->
+    <section class="page-hero">
+        <span class="section-tag">Urban Insights</span>
+        <h1 class="page-hero-title">Resources & Articles</h1>
+        <p class="page-hero-desc">Discover reports, software releases, and integration case studies from the field of Smart Infrastructure.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- 1. Featured Blog Section -->
+        <section class="blog-featured animate-on-scroll">
+            <div class="featured-card glass-card">
+                <div class="featured-img-wrapper">
+                    <img src="Assests/OIP (3).webp" alt="Featured Article Cityscape">
+                </div>
+                <div class="featured-content">
+                    <span class="featured-badge">Featured Paper</span>
+                    <h2 class="featured-title">Decentralizing the Substation Grid: A Multi-Agent Routing Paradigm</h2>
+                    <p class="featured-desc">How local residential batteries can autonomously pool resources to prevent regional transformer overload during high-heat season load surges.</p>
+                    <div class="blog-meta">
+                        <span><i data-lucide="user"></i> Devon Lane</span>
+                        <span><i data-lucide="clock"></i> 14 Min Read</span>
+                    </div>
+                    <button class="btn btn-primary">Download Whitepaper</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Latest Articles + Search Bar -->
+        <section class="blog-articles">
+            <div class="blog-filter-bar animate-on-scroll">
+                <div class="search-box">
+                    <i data-lucide="search"></i>
+                    <input type="text" placeholder="Search smart grid, transit, sensors...">
+                </div>
+                
+                <div class="portfolio-filters" style="margin-bottom: 0;">
+                    <button class="filter-btn active">All Articles</button>
+                    <button class="filter-btn">Tech Spec</button>
+                    <button class="filter-btn">Municipalities</button>
+                    <button class="filter-btn">Case Studies</button>
+                </div>
+            </div>
+
+            <div class="news-grid">
+                <!-- Blog Card 1 -->
+                <div class="blog-card glass-card animate-on-scroll">
+                    <div class="blog-card-img">
+                        <img src="Assests/hero_bg_.webp" alt="Smart City Sensors">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span><i data-lucide="calendar"></i> June 12, 2026</span>
+                            <span><i data-lucide="tag"></i> Tech Spec</span>
+                        </div>
+                        <h3 class="blog-title">How 5G Edge Sensors are Revitalizing Transit Networks</h3>
+                        <p class="blog-desc">Detailing the latency and speed advantages of localized street intersection computations compared to central database relays.</p>
+                        <button class="btn btn-secondary">Read Post</button>
+                    </div>
+                </div>
+                <!-- Blog Card 2 -->
+                <div class="blog-card glass-card animate-on-scroll delay-100">
+                    <div class="blog-card-img">
+                        <img src="Assests/OIP.webp" alt="Drone Solar Panel">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span><i data-lucide="calendar"></i> June 08, 2026</span>
+                            <span><i data-lucide="tag"></i> Case Studies</span>
+                        </div>
+                        <h3 class="blog-title">Shoring Up Energy Microgrids Against Climatic Events</h3>
+                        <p class="blog-desc">Reviewing structural routing algorithms within solar nodes that enable automated recovery during extreme weather events.</p>
+                        <button class="btn btn-secondary">Read Post</button>
+                    </div>
+                </div>
+                <!-- Blog Card 3 -->
+                <div class="blog-card glass-card animate-on-scroll delay-200">
+                    <div class="blog-card-img">
+                        <img src="Assests/blog_post.webp" alt="Smart crossing visual">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span><i data-lucide="calendar"></i> May 29, 2026</span>
+                            <span><i data-lucide="tag"></i> Municipalities</span>
+                        </div>
+                        <h3 class="blog-title">Anonymizing Public Feeds: Trust and Smart Cities</h3>
+                        <p class="blog-desc">Privacy standards guidelines for processing civic video loops into path vectors, preventing capture of personal identifier metadata.</p>
+                        <button class="btn btn-secondary">Read Post</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Categories Grid -->
+        <section class="blog-categories">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Explore Subjects</span>
+                <h2 class="section-title">Research Categories</h2>
+                <p class="section-desc">Quickly browse engineering publications by utility field.</p>
+            </div>
+
+            <div class="categories-grid">
+                <!-- Cat 1 -->
+                <div class="category-card glass-card animate-on-scroll">
+                    <i data-lucide="zap"></i>
+                    <h3>Grid Systems</h3>
+                    <span>12 Papers</span>
+                </div>
+                <!-- Cat 2 -->
+                <div class="category-card glass-card animate-on-scroll delay-100">
+                    <i data-lucide="car"></i>
+                    <h3>Traffic AI</h3>
+                    <span>8 Papers</span>
+                </div>
+                <!-- Cat 3 -->
+                <div class="category-card glass-card animate-on-scroll delay-200">
+                    <i data-lucide="lock"></i>
+                    <h3>Public Security</h3>
+                    <span>5 Papers</span>
+                </div>
+                <!-- Cat 4 -->
+                <div class="category-card glass-card animate-on-scroll delay-300">
+                    <i data-lucide="database"></i>
+                    <h3>Edge Analytics</h3>
+                    <span>16 Papers</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Newsletter Subscription -->
+        <section class="newsletter">
+            <div class="newsletter-card glass-card animate-on-scroll">
+                <span class="section-tag">Stay Updated</span>
+                <h2 class="section-title">Subscribing to UrbanNexus News</h2>
+                <p class="section-desc" style="max-width: 500px; margin: 0 auto;">Receive monthly engineering updates, software release logs, and project case briefs directly to your inbox.</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter municipal email address" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="Assests/logo.webp" alt="stackly Logo">
+                   
+                </a>
+                <p>Empowering city administrations with high-performance, decentralized IoT solutions to achieve sustainability targets and maximize resource efficiency.</p>
+               <div class="social-icons">
+    <a href="404.html" aria-label="Stackly Smart City Twitter">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="404.html" aria-label="Stackly Smart City Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="404.html" aria-label="Stackly Smart City LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
+    <a href="404.html" aria-label="Stackly Smart City GitHub">
+        <i class="fa-brands fa-github"></i>
+    </a>
+</div>
+            
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Solutions</h4>
+                <ul class="footer-nav-links">
+                    <li><a href="404.html">Traffic Systems</a></li>
+                    <li><a href="404.html">Green Energy Grid</a></li>
+                    <li><a href="404.html">Edge Processing</a></li>
+                    <li><a href="404.html">Civic Deployments</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Company</h4>
+                <ul class="footer-nav-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Resources & Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="404.html">Security Shield</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i data-lucide="map-pin"></i>
+                        <span>100 Technology Parkway, Suite 400, Urban Innovation District, NY 10001</span>
+                    </li>
+                    <li>
+                        <i data-lucide="phone"></i>
+                        <span>+1 (800) 555-0199</span>
+                    </li>
+                    <li>
+                        <i data-lucide="mail"></i>
+                        <span>support@stacly.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2026 stackly All rights reserved.</div>
+            <ul class="footer-policy">
+                <li><a href="404.html">Terms of Service</a></li>
+                <li><a href="404.html">Privacy Policy</a></li>
+                <li><a href="404.html">GDPR Compliance</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="main.js"></script>
+</body>
+</html>

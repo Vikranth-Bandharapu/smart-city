@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get in touch with UrbanNexus solutions experts. Schedule an integration assessment or ask technical questions.">
+    <title>Contact Us | UrbanNexus Smart City Solutions</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <!-- Sticky Header & Navbar -->
+    <header>
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo" aria-label="stackly Home">
+                <img src="Assests/logo.webp" alt="stackly Logo">
+                
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+                <!-- Mobile only links -->
+                <li class="mobile-only-btn"><a href="login.html" class="btn btn-secondary" id="nav-login-btn-mobile">Login</a></li>
+                <li class="mobile-only-btn"><a href="signup.html" class="btn btn-primary" id="nav-signup-btn-mobile">Sign Up</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="btn btn-link" id="nav-login-btn">Login</a>
+                <a href="signup.html" class="btn btn-primary" id="nav-signup-btn">Sign Up</a>
+            </div>
+
+            <button class="hamburger" aria-expanded="false" aria-label="Toggle Navigation Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Page Header Hero -->
+    <section class="page-hero">
+        <span class="section-tag">Reach Out</span>
+        <h1 class="page-hero-title">Contact Our Integration Team</h1>
+        <p class="page-hero-desc">Have questions about municipal deployment, edge security standards, or pricing matrices? We are here to help.</p>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- 1. Contact Information Cards -->
+        <section class="contact-info-section">
+            <div class="contact-info-grid">
+                <!-- Card 1 -->
+                <div class="contact-info-card glass-card animate-on-scroll">
+                    <i data-lucide="mail"></i>
+                    <h3>General Inquiries</h3>
+                    <p>For research requests and general info.</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">info@urbannexus.com</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="contact-info-card glass-card animate-on-scroll delay-100">
+                    <i data-lucide="phone"></i>
+                    <h3>Municipal Sales</h3>
+                    <p>Monday-Friday, 9am - 6pm EST.</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">+1 (800) 555-0199</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="contact-info-card glass-card animate-on-scroll delay-200">
+                    <i data-lucide="map-pin"></i>
+                    <h3>Research Headquarters</h3>
+                    <p>Urban Innovation District</p>
+                    <p style="color: var(--primary); font-weight: 600; margin-top: 0.5rem;">New York, NY 10001</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Contact Form & Side Panel -->
+        <section class="contact-form-section">
+            <div class="contact-grid">
+                <div class="contact-form-wrapper glass-card animate-on-scroll">
+                    <h3>Send Us a Message</h3>
+                    
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="contact-name">Full Name</label>
+                            <input type="text" id="contact-name" placeholder="John Doe" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email">Corporate/Municipal Email</label>
+                            <input type="email" id="contact-email" placeholder="j.doe@citygov.org" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-subject">Topic of Interest</label>
+                            <select id="contact-subject">
+                                <option value="traffic">Intelligent Traffic Solutions</option>
+                                <option value="energy">Green Electrical Grid Pilots</option>
+                                <option value="safety">Public Security Edge Networks</option>
+                                <option value="academic">Academic Partnership / Press</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="contact-message">Your Message</label>
+                            <textarea id="contact-message" rows="5" placeholder="Specify your municipal size and requirements..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-visual-side glass-card animate-on-scroll delay-200">
+                    <h3>Integration Evaluation</h3>
+                    <p>Our lead engineers provide detailed compatibility analyses for prospective municipal networks.</p>
+                    <p><strong>Evaluation includes:</strong></p>
+                    <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem; color: var(--text-muted);">
+                        <li><i data-lucide="check" style="color: var(--primary); vertical-align: middle; margin-right: 0.5rem;"></i> Telemetry compatibility audits</li>
+                        <li><i data-lucide="check" style="color: var(--primary); vertical-align: middle; margin-right: 0.5rem;"></i> Grid node safety diagnostics</li>
+                        <li><i data-lucide="check" style="color: var(--primary); vertical-align: middle; margin-right: 0.5rem;"></i> Cost/benefit projection models</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Office Location Map -->
+        <section class="map-section">
+            <div class="map-wrapper glass-card animate-on-scroll">
+                <div class="map-placeholder">
+                    <i data-lucide="map-pin"></i>
+                    <div class="map-details">
+                        <h4>Aetheria Innovation Hub</h4>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 0.5rem;">100 Technology Parkway, Suite 400, New York, NY</p>
+                        <p style="color: var(--text-muted); font-size: 0.8rem;">GPS Coordinates: 40.7128&deg; N, 74.0060&deg; W</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Knowledgebase</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-desc">Quick replies to common queries regarding security and deployment timelines.</p>
+            </div>
+
+            <div class="faq-container animate-on-scroll">
+                <!-- FAQ 1 -->
+                <div class="faq-item glass-card">
+                    <div class="faq-header">
+                        <h3>What is the typical deployment window for traffic grids?</h3>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>For standard medium-sized municipal intersections (50-100 signals), deployment takes 8 to 12 weeks. This includes edge camera installation, telemetry testing, and baseline model calibration prior to active routing.</p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item glass-card">
+                    <div class="faq-header">
+                        <h3>How does UrbanNexus preserve passenger privacy?</h3>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>We process all data streams at the node level. High-resolution video is immediately deleted and replaced with generic bounding boxes and vector numbers. No facial structures, vehicle plates, or personal identifiers are stored or uploaded.</p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item glass-card">
+                    <div class="faq-header">
+                        <h3>Can the software integrate with legacy electrical grids?</h3>
+                        <i data-lucide="plus" class="faq-icon"></i>
+                    </div>
+                    <div class="faq-body">
+                        <p>Yes. Our Green Smart Grid platform utilizes open-standard adapters that interface with legacy SCADA systems and standard power meters, enabling real-time monitoring without grid replacement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <img src="Assests/logo.webp" alt="UrbanNexus Logo">
+                </a>
+                <p>Empowering city administrations with high-performance, decentralized IoT solutions to achieve sustainability targets and maximize resource efficiency.</p>
+                <div class="social-icons">
+    <a href="404.html" aria-label="Stackly Smart City Twitter">
+        <i class="fa-brands fa-x-twitter"></i>
+    </a>
+
+    <a href="404.html" aria-label="Stackly Smart City Facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="404.html" aria-label="Stackly Smart City LinkedIn">
+        <i class="fa-brands fa-linkedin-in"></i>
+    </a>
+
+    <a href="404.html" aria-label="Stackly Smart City GitHub">
+        <i class="fa-brands fa-github"></i>
+    </a>
+</div>
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Solutions</h4>
+                <ul class="footer-nav-links">
+                    <li><a href="404.html">Traffic Systems</a></li>
+                    <li><a href="404.html">Green Energy Grid</a></li>
+                    <li><a href="404.html">Edge Processing</a></li>
+                    <li><a href="404.html">Civic Deployments</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Company</h4>
+                <ul class="footer-nav-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html">Resources & Blog</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="404.html">Security Shield</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Contact Info</h4>
+                <ul class="footer-contact-list">
+                    <li>
+                        <i data-lucide="map-pin"></i>
+                        <span>100 Technology Parkway, Suite 400, Urban Innovation District, NY 10001</span>
+                    </li>
+                    <li>
+                        <i data-lucide="phone"></i>
+                        <span>+1 (800) 555-0199</span>
+                    </li>
+                    <li>
+                        <i data-lucide="mail"></i>
+                        <span>support@stackly.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-copy">&copy; 2026 stackly All rights reserved.</div>
+            <ul class="footer-policy">
+                <li><a href="404.html">Terms of Service</a></li>
+                <li><a href="404.html">Privacy Policy</a></li>
+                <li><a href="404.html">GDPR Compliance</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <!-- Main JavaScript Logic -->
+    <script src="main.js"></script>
+</body>
+</html>

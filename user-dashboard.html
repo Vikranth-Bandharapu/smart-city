@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | UrbanNexus Solutions</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Lucide Icons Library -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-container">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <img src="Assests/logo.webp" alt="UrbanNexus Logo">
+                    
+                </a>
+                <button class="sidebar-toggle"><i data-lucide="chevron-left"></i></button>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li class="sidebar-menu-item active" data-target="user-home-view">
+                    <a href="#"><i data-lucide="home"></i> <span>Home Console</span></a>
+                </li>
+                <li class="sidebar-menu-item" data-target="user-profile-view">
+                    <a href="#"><i data-lucide="user"></i> <span>My Profile</span></a>
+                </li>
+                <li class="sidebar-menu-item" data-target="user-notifications-view">
+                    <a href="#"><i data-lucide="bell"></i> <span>Neighborhood Alerts</span></a>
+                </li>
+                <li class="sidebar-menu-item" data-target="user-settings-view">
+                    <a href="#"><i data-lucide="sliders"></i> <span>Settings</span></a>
+                </li>
+                <li class="sidebar-menu-item" data-target="user-apps-view">
+                    <a href="#"><i data-lucide="layout-grid"></i> <span>Smart Applications</span></a>
+                </li>
+                <li class="sidebar-menu-item" data-target="user-support-view">
+                    <a href="#"><i data-lucide="help-circle"></i> <span>Support Desk</span></a>
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <a href="#" class="btn btn-secondary logout-btn" id="logout-btn" style="width: 100%;"><i data-lucide="log-out"></i> Logout</a>
+            </div>
+        </aside>
+
+        <!-- Main Content Workspace -->
+        <div class="main-content">
+            
+            <!-- Topbar Header -->
+            <header class="topbar">
+                <div class="page-title">
+                    <h2>Home Console</h2>
+                </div>
+                <div class="topbar-actions">
+                    <!-- Notifications Bell Icon -->
+                    <div class="notification-bell" id="topbar-bell">
+                        <i data-lucide="bell"></i>
+                        <span class="notification-badge"></span>
+                    </div>
+                    <!-- User Profile Quick View -->
+                    <div class="user-profile-widget">
+                        <img src="Assests/team_member_3.webp" alt="User Avatar" class="user-avatar">
+                        <div class="user-info-text">
+                            <span class="user-info-name dashboard-user-name">Citizen User</span>
+                            <span class="user-info-role dashboard-user-email">citizen@stackly.com</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Scrollable Workspace Views -->
+            <main class="dashboard-view">
+
+                <!-- VIEW 1: Home View with Welcome & Personal Eco Stats -->
+                <div class="dash-view-section" id="user-home-view">
+                    <!-- Welcome banner -->
+                    <div class="user-welcome-card">
+                        <h1>Welcome back, <span class="dashboard-user-name">Citizen</span>!</h1>
+                        <p>Your residential node is active. You have contributed to <strong>78 kg</strong> of carbon offsets this week via autonomous green energy pooling.</p>
+                    </div>
+
+                    <!-- Personal Metrics -->
+                    <div class="metrics-grid" style="margin-bottom: 2rem;">
+                        <div class="metric-card glass-card">
+                            <div class="metric-info">
+                                <span class="metric-label">My Daily Solar Gen</span>
+                                <span class="metric-value">14.2 kWh</span>
+                                <span style="color: #10b981; font-size: 0.85rem;"><i data-lucide="sun"></i> Sun Coverage Good</span>
+                            </div>
+                            <div class="metric-icon-box"><i data-lucide="sun"></i></div>
+                        </div>
+                        <div class="metric-card glass-card">
+                            <div class="metric-info">
+                                <span class="metric-label">Grid Load Draw</span>
+                                <span class="metric-value">1.4 kW</span>
+                                <span style="color: var(--primary); font-size: 0.85rem;"><i data-lucide="arrow-down"></i> Lower than average</span>
+                            </div>
+                            <div class="metric-icon-box" style="color: var(--primary); background: rgba(0,240,255,0.05);"><i data-lucide="battery-charging"></i></div>
+                        </div>
+                        <div class="metric-card glass-card">
+                            <div class="metric-info">
+                                <span class="metric-label">Eco Score Rank</span>
+                                <span class="metric-value">Top 12%</span>
+                                <span style="color: #7000ff; font-size: 0.85rem;"><i data-lucide="award"></i> Neighborhood Leader</span>
+                            </div>
+                            <div class="metric-icon-box" style="color: #7000ff; background: rgba(112,0,255,0.05);"><i data-lucide="sprout"></i></div>
+                        </div>
+                    </div>
+
+                    <!-- Energy Savings Bar -->
+                    <div class="table-card glass-card" style="margin-bottom: 2rem;">
+                        <div class="table-header">
+                            <h3>Weekly Substation Self-Sufficiency</h3>
+                            <span style="font-weight: 600; color: var(--primary);">78% Renewables</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); width: 100%; height: 12px; border-radius: 100px; overflow: hidden; margin-top: 1rem; border: 1px solid var(--card-border);">
+                            <div id="energy-saving-fill" style="background: linear-gradient(90deg, var(--primary), var(--secondary)); height: 100%; width: 0%; transition: width 1s ease-in-out;"></div>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 0.75rem;">Your local grid block did not draw any fossil fuel energy during peak solar times (11:00 AM - 3:00 PM).</p>
+                    </div>
+                </div>
+
+                <!-- VIEW 2: My Profile Section -->
+                <div class="dash-view-section" id="user-profile-view" style="display: none;">
+                    <div class="profile-settings-grid">
+                        
+                        <!-- Profile Card -->
+                        <div class="profile-summary-card glass-card">
+                            <img src="Assests/team_member_3.webp" alt="User Avatar" class="user-avatar">
+                            <div>
+                                <h3 class="dashboard-user-name">Citizen User</h3>
+                                <p style="color: var(--text-muted); font-size: 0.9rem;" class="dashboard-user-email">citizen@urbannexus.com</p>
+                            </div>
+                            <span class="badge-status active">District Citizen Member</span>
+                            
+                            <div class="profile-actions">
+                                <button class="btn btn-secondary" style="width: 100%;"><i data-lucide="camera"></i> Change Photo</button>
+                            </div>
+                        </div>
+
+                        <!-- Info Update form -->
+                        <div class="table-card glass-card">
+                            <div class="table-header">
+                                <h3>Account Information</h3>
+                            </div>
+                            <form style="display: flex; flex-direction: column; gap: 1.25rem;">
+                                <div class="form-group">
+                                    <label>Registered Name</label>
+                                    <input type="text" value="Citizen User" class="dashboard-user-name" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Console Email</label>
+                                    <input type="email" value="citizen@urbannexus.com" class="dashboard-user-email" disabled>
+                                </div>
+                                <div class="form-group">
+                                    <label>Residential District Hub</label>
+                                    <select>
+                                        <option value="d1">District 1 - Innovation Core</option>
+                                        <option value="d2">District 2 - Central Transit Hub</option>
+                                        <option value="d3">District 3 - South Grid Array</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Save Profile Info</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 3: Neighborhood Alerts -->
+                <div class="dash-view-section" id="user-notifications-view" style="display: none;">
+                    <div class="table-card glass-card">
+                        <div class="table-header">
+                            <h3>Local Municipal Alerts</h3>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="padding: 1.5rem; border-radius: 8px; background: rgba(0, 240, 255, 0.03); border: 1px solid rgba(0, 240, 255, 0.1); display: flex; gap: 1rem;">
+                                <i data-lucide="info" style="color: var(--primary); flex-shrink: 0;"></i>
+                                <div>
+                                    <h4 style="margin-bottom: 0.25rem;">Substation B Maintenance</h4>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">Maintenance on local batteries on Tuesday morning. Autonomic fallback grid active; no power interruptions expected.</p>
+                                    <span style="font-size: 0.75rem; color: var(--primary); margin-top: 0.5rem; display: inline-block;">Today - 10:15 AM</span>
+                                </div>
+                            </div>
+                            <div style="padding: 1.5rem; border-radius: 8px; background: rgba(255,255,255,0.02); border: 1px solid var(--card-border); display: flex; gap: 1rem;">
+                                <i data-lucide="car" style="color: var(--text-muted); flex-shrink: 0;"></i>
+                                <div>
+                                    <h4 style="margin-bottom: 0.25rem;">Traffic Rerouted at Grand Avenue</h4>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">Dynamic signal timing activated due to scheduled water main inspection.</p>
+                                    <span style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.5rem; display: inline-block;">Yesterday - 08:00 AM</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 4: User Settings -->
+                <div class="dash-view-section" id="user-settings-view" style="display: none;">
+                    <div class="table-card glass-card">
+                        <div class="table-header">
+                            <h3>Console Preferences</h3>
+                        </div>
+                        <form style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                                <label style="font-weight: 600; font-size: 0.95rem;">Alert Notifications Options</label>
+                                <div style="display: flex; gap: 1rem; align-items: center;">
+                                    <input type="checkbox" id="sms-alert" checked style="width: auto;">
+                                    <label for="sms-alert" style="margin-bottom: 0; font-weight: normal; cursor: pointer;">Send SMS text alerts for critical grid notices</label>
+                                </div>
+                                <div style="display: flex; gap: 1rem; align-items: center;">
+                                    <input type="checkbox" id="mail-alert" checked style="width: auto;">
+                                    <label for="mail-alert" style="margin-bottom: 0; font-weight: normal; cursor: pointer;">Send weekly eco-contribution report emails</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Console Temperature Units</label>
+                                <select>
+                                    <option value="c">Celsius (&deg;C)</option>
+                                    <option value="f">Fahrenheit (&deg;F)</option>
+                                </select>
+                            </div>
+
+                            <div style="display: flex; gap: 1rem;">
+                                <button type="submit" class="btn btn-primary">Save Settings</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- VIEW 5: Smart Applications Catalog -->
+                <div class="dash-view-section" id="user-apps-view" style="display: none;">
+                    <div class="section-header" style="text-align: left; margin-bottom: 2rem;">
+                        <span class="section-tag">District Utility Apps</span>
+                        <h2 style="font-size: 1.8rem;">Smart Applications Catalog</h2>
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2rem;">
+                        <!-- App 1 -->
+                        <div class="service-card glass-card" style="padding: 2rem; border-radius: 12px; gap: 1rem;">
+                            <i data-lucide="car" style="color: var(--primary); font-size: 2rem;"></i>
+                            <h3 style="font-size: 1.25rem;">Rideshare Hub</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Coordinate carpools and zero-emission district transit routes in real-time.</p>
+                            <button class="btn btn-secondary btn-outline" style="width: 100%; padding: 0.5rem 1rem;">Launch App</button>
+                        </div>
+                        <!-- App 2 -->
+                        <div class="service-card glass-card" style="padding: 2rem; border-radius: 12px; gap: 1rem;">
+                            <i data-lucide="trash-2" style="color: #7000ff; font-size: 2rem;"></i>
+                            <h3 style="font-size: 1.25rem;">Waste Pickup Status</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Monitor bin sensors and receive garbage truck proximity alerts.</p>
+                            <button class="btn btn-secondary btn-outline" style="width: 100%; padding: 0.5rem 1rem;">Launch App</button>
+                        </div>
+                        <!-- App 3 -->
+                        <div class="service-card glass-card" style="padding: 2rem; border-radius: 12px; gap: 1rem;">
+                            <i data-lucide="wind" style="color: #10b981; font-size: 2rem;"></i>
+                            <h3 style="font-size: 1.25rem;">Air Quality Hub</h3>
+                            <p style="font-size: 0.85rem; color: var(--text-muted);">Access live micro-climate sensor updates from neighborhood nodes.</p>
+                            <button class="btn btn-secondary btn-outline" style="width: 100%; padding: 0.5rem 1rem;">Launch App</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VIEW 6: Support Desk & Enquiries -->
+                <div class="dash-view-section" id="user-support-view" style="display: none;">
+                    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.5rem; margin-bottom: 2rem;">
+                        <!-- Ticket Submission Form -->
+                        <div class="table-card glass-card">
+                            <div class="table-header">
+                                <h3>File District Enquiry</h3>
+                            </div>
+                            <form style="display: flex; flex-direction: column; gap: 1rem;" id="user-ticket-form">
+                                <div class="form-group">
+                                    <label>Enquiry Category</label>
+                                    <select id="ticket-category">
+                                        <option value="grid">Residential Solar Pooling Issue</option>
+                                        <option value="traffic">Sensor Calibration Bug</option>
+                                        <option value="other">General Municipal Query</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Detailed Enquiry Description</label>
+                                    <textarea id="ticket-message" rows="4" placeholder="Briefly describe the telemetry issue..." required></textarea>
+                                </div>
+                                <div>
+                                    <button type="submit" class="btn btn-primary">Submit Ticket</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Ticket Status Listing -->
+                        <div class="table-card glass-card">
+                            <div class="table-header">
+                                <h3>Recent Support Tickets</h3>
+                            </div>
+                            <ul style="list-style: none; display: flex; flex-direction: column; gap: 1rem;" id="user-tickets-list">
+                                <li style="border-bottom: 1px solid var(--border-light); padding-bottom: 0.75rem; display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <h4 style="font-size: 0.9rem;">#TK-4029: Solar Gen Gap</h4>
+                                        <p style="font-size: 0.75rem; color: var(--text-muted);">Filed on June 12, 2026</p>
+                                    </div>
+                                    <span class="badge-status active">Resolved</span>
+                                </li>
+                                <li style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <h4 style="font-size: 0.9rem;">#TK-4835: Streetlight Flashing</h4>
+                                        <p style="font-size: 0.75rem; color: var(--text-muted);">Filed on June 15, 2026</p>
+                                    </div>
+                                    <span class="badge-status inactive" style="background: rgba(255,165,0,0.1); color: orange;">Pending</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>
