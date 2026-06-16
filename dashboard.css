@@ -598,7 +598,37 @@ tr:hover td {
     }
 
     .topbar {
-        padding: 0 1rem;
+        padding: 0 0.75rem;
+    }
+
+    .page-title h2 {
+        font-size: 1.1rem;
+        line-height: 1.2;
+    }
+
+    .topbar-actions {
+        gap: 0.75rem;
+    }
+
+    .user-profile-widget {
+        gap: 0.5rem;
+    }
+
+    .user-avatar {
+        width: 32px;
+        height: 32px;
+    }
+
+    .user-info-name {
+        font-size: 0.8rem;
+    }
+
+    .user-info-role {
+        font-size: 0.65rem;
+        max-width: 130px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .chart-card {
