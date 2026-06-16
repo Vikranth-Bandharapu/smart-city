@@ -176,6 +176,9 @@ function initGlobalButtonRedirects() {
         // 6. Dashboard navigation tabs & sidebar toggles
         const isDashboardMenu = target.closest('.sidebar-menu-item') || target.closest('.sidebar-toggle') || target.closest('.user-profile-widget');
 
+        // 7. Slider arrow buttons (Testimonials)
+        const isSliderArrow = target.classList.contains('slider-arrow') || target.closest('.slider-arrow');
+
         // Combined Exemptions
         if (
             isNavLoginBtn || 
@@ -186,9 +189,78 @@ function initGlobalButtonRedirects() {
             isAuthToggleLink ||
             isGoHome || 
             isHamburger || 
-            isDashboardMenu
+            isDashboardMenu ||
+            isSliderArrow
         ) {
             return; // Allow default navigation/logic
+        }
+
+        // Check form validation first if it's a form submission button
+        const form = target.closest('form');
+        if (form) {
+            const isSubmit = target.type === 'submit' || target.tagName === 'BUTTON' || target.getAttribute('type') === 'submit';
+            if (isSubmit) {
+                // Clear any existing errors first
+                clearInlineErrors(form);
+
+                // Find all inputs in the form
+                const emailInput = form.querySelector('input[type="email"]');
+                const nameInput = form.querySelector('input[type="text"]');
+                const messageInput = form.querySelector('textarea');
+                let hasError = false;
+
+                // Helper to setup auto-clear on input
+                const setupAutoClear = (inputEl) => {
+                    if (!inputEl) return;
+                    if (!inputEl.dataset.hasErrorListener) {
+                        inputEl.addEventListener('input', () => {
+                            inputEl.style.borderColor = '';
+                            const parent = inputEl.closest('.form-group') || inputEl.closest('form');
+                            if (parent) {
+                                const err = parent.querySelector('.form-error-msg');
+                                if (err) err.remove();
+                            }
+                        });
+                        inputEl.dataset.hasErrorListener = 'true';
+                    }
+                };
+
+                // 1. Email validation
+                if (emailInput) {
+                    setupAutoClear(emailInput);
+                    const emailValue = emailInput.value.trim();
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailValue || !emailRegex.test(emailValue)) {
+                        e.preventDefault();
+                        showInlineError(emailInput, 'Please enter a valid email address.');
+                        hasError = true;
+                    }
+                }
+
+                // 2. Name validation (if required)
+                if (nameInput && nameInput.hasAttribute('required')) {
+                    setupAutoClear(nameInput);
+                    if (!nameInput.value.trim()) {
+                        e.preventDefault();
+                        showInlineError(nameInput, 'Please enter your full name.');
+                        hasError = true;
+                    }
+                }
+
+                // 3. Message validation (if required)
+                if (messageInput && messageInput.hasAttribute('required')) {
+                    setupAutoClear(messageInput);
+                    if (!messageInput.value.trim()) {
+                        e.preventDefault();
+                        showInlineError(messageInput, 'Please enter your message.');
+                        hasError = true;
+                    }
+                }
+
+                if (hasError) {
+                    return;
+                }
+            }
         }
 
         // If it's a service/project filter button, we can toggle category but the prompt says:
@@ -196,5 +268,38 @@ function initGlobalButtonRedirects() {
         // We will strictly redirect everything else (Learn More, Submit Form, Newsletter Subscribe, etc.) to 404.html!
         e.preventDefault();
         window.location.href = '404.html';
+    });
+}
+
+/* 7. Inline Form Validation Helpers */
+function showInlineError(inputElement, message) {
+    const parent = inputElement.closest('.form-group') || inputElement.closest('form');
+    if (!parent) return;
+
+    if (parent.tagName === 'FORM') {
+        parent.style.flexWrap = 'wrap';
+    }
+
+    let errorEl = parent.querySelector('.form-error-msg');
+    if (!errorEl) {
+        errorEl = document.createElement('span');
+        errorEl.className = 'form-error-msg';
+        errorEl.style.color = '#f87171'; // bright red-coral
+        errorEl.style.fontSize = '0.8rem';
+        errorEl.style.marginTop = '0.5rem';
+        errorEl.style.display = 'block';
+        errorEl.style.width = '100%';
+        errorEl.style.flexBasis = '100%';
+        errorEl.style.textAlign = 'left';
+        parent.appendChild(errorEl);
+    }
+    errorEl.textContent = message;
+    inputElement.style.borderColor = '#f87171';
+}
+
+function clearInlineErrors(form) {
+    form.querySelectorAll('.form-error-msg').forEach(el => el.remove());
+    form.querySelectorAll('input, textarea, select').forEach(el => {
+        el.style.borderColor = '';
     });
 }
