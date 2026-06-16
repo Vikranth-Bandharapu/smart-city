@@ -144,6 +144,11 @@ function initTestimonialSlider() {
 /* 6. Global Button & CTA Redirects to 404 */
 function initGlobalButtonRedirects() {
     document.addEventListener('click', (e) => {
+        // Disable 404 redirects on dashboard pages
+        if (window.location.pathname.includes('dashboard')) {
+            return;
+        }
+
         // Find if user clicked a button, submit input, or anchor styled as button
         const target = e.target.closest('button, a, input[type="submit"]');
         if (!target) return;
