@@ -1072,14 +1072,16 @@ header.scrolled .navbar {
 }
 
 .blog-card-img {
-    height: 280px;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
 }
 
 .blog-card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: top;
+    transition: var(--transition-smooth);
 }
 
 .blog-card:hover .blog-card-img img {
@@ -1466,21 +1468,17 @@ footer {
     overflow: hidden;
     text-align: center;
 }
+
 .team-img-wrapper {
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    background: rgba(255,255,255,0.03);
+    height: 320px;
+    overflow: hidden;
+    position: relative;
 }
 
 .team-card img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     transition: var(--transition-smooth);
 }
 
@@ -2182,6 +2180,26 @@ footer {
     .news-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Force vertical stacking on mobile to prevent horizontal overflows */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .intro-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .intro-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .intro-stats-compact {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
     
     .stats-grid {
         grid-template-columns: 1fr;
@@ -2336,29 +2354,12 @@ footer {
     .mission-card {
         padding: 2.5rem 1.5rem;
     }
-}
-.social-icons {
-    display: flex;
-    gap: 15px;
-}
-
-.social-icons a {
-    width: 45px;
-    height: 45px;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    text-decoration: none;
-    font-size: 20px;
-    transition: all 0.3s ease;
-}
-
-.social-icons a:hover {
-    transform: translateY(-5px);
-    background: #0b3d91;
-    box-shadow: 0 0 15px rgba(11, 61, 145, 0.5);
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+    }
+    .hero-widget {
+        padding: 1.5rem;
+    }
 }

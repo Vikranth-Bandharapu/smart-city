@@ -45,11 +45,13 @@ function initSidebar() {
     const dashHamburger = document.querySelector('.dash-hamburger');
     const menuItems = document.querySelectorAll('.sidebar-menu-item');
     const dashViews = document.querySelectorAll('.dash-view-section');
+    const overlay = document.getElementById('sidebar-overlay');
 
     // Close sidebar from toggle button inside sidebar
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', () => {
             sidebar.classList.remove('active');
+            if (overlay) overlay.classList.remove('active');
         });
     }
 
@@ -57,6 +59,15 @@ function initSidebar() {
     if (dashHamburger && sidebar) {
         dashHamburger.addEventListener('click', () => {
             sidebar.classList.add('active');
+            if (overlay) overlay.classList.add('active');
+        });
+    }
+
+    // Close sidebar when clicking backdrop overlay
+    if (overlay && sidebar) {
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
         });
     }
 
@@ -89,6 +100,7 @@ function initSidebar() {
                 // If on mobile, close sidebar on selection
                 if (window.innerWidth <= 768 && sidebar) {
                     sidebar.classList.remove('active');
+                    if (overlay) overlay.classList.remove('active');
                 }
             });
         });
