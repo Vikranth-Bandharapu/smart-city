@@ -42,12 +42,21 @@ function checkSession() {
 function initSidebar() {
     const sidebar = document.querySelector('.sidebar');
     const toggleBtn = document.querySelector('.sidebar-toggle');
+    const dashHamburger = document.querySelector('.dash-hamburger');
     const menuItems = document.querySelectorAll('.sidebar-menu-item');
     const dashViews = document.querySelectorAll('.dash-view-section');
 
+    // Close sidebar from toggle button inside sidebar
     if (toggleBtn && sidebar) {
         toggleBtn.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
+            sidebar.classList.remove('active');
+        });
+    }
+
+    // Open sidebar from hamburger button in topbar
+    if (dashHamburger && sidebar) {
+        dashHamburger.addEventListener('click', () => {
+            sidebar.classList.add('active');
         });
     }
 

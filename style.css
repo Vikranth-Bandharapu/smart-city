@@ -92,9 +92,7 @@ svg.lucide, .lucide {
 .social-icon svg, .social-icon i {
     width: 18px;
     height: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: block;
 }
 
 .footer-contact-list li svg, .footer-contact-list li i {
@@ -237,7 +235,7 @@ header.scrolled .navbar {
 }
 
 .logo img {
-    height: 120px;
+    height: 32px;
     width: auto;
     max-width: 180px;
     object-fit: contain;
@@ -1602,12 +1600,13 @@ footer {
     box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
 }
 
-.search-box i {
+.search-box i, .search-box svg {
     position: absolute;
     left: 1rem;
     top: 50%;
     transform: translateY(-50%);
     color: var(--text-muted);
+    pointer-events: none;
 }
 
 .blog-categories {
@@ -2145,10 +2144,10 @@ footer {
         position: fixed;
         top: 0;
         right: -100%;
-        width: 80%;
-        max-width: 400px;
+        width: 100%;
+        max-width: 100%;
         height: 100vh;
-        background: rgba(3, 7, 18, 0.95);
+        background: rgba(3, 7, 18, 0.98);
         backdrop-filter: blur(20px);
         flex-direction: column;
         justify-content: center;
@@ -2156,7 +2155,7 @@ footer {
         gap: 2.5rem;
         z-index: 1050;
         transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        border-left: 1px solid var(--card-border);
+        border-left: none;
     }
     
     .nav-links.active {
@@ -2207,9 +2206,94 @@ footer {
         flex-direction: column;
     }
 
-    .footer-grid {
+    .logo-text {
+        display: none; /* Hide text on mobile to prevent overflow/overlap with wide image logo */
+    }
+    
+    .logo img {
+        height: 28px !important; /* Constrain image logo size on mobile */
+        max-width: 140px;
+    }
+
+    /* Mission & Vision Section Stacking on Mobile */
+    .mission-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+
+    .mission-card {
+        padding: 3rem 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+    }
+
+    .footer-brand {
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-brand p {
+        max-width: 480px;
+        margin: 0 auto;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+
+    .footer-nav {
+        text-align: center;
+    }
+
+    .footer-nav-links {
+        align-items: center;
+    }
+
+    .footer-contact {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-contact-list {
+        align-items: center;
+    }
+
+    .footer-contact-list li {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .footer-policy {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+    }
+
+    /* Wrap filter buttons on mobile to avoid horizontal scrolling/cutoff */
+    .portfolio-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        padding: 0 1rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 1.25rem;
+        font-size: 0.85rem;
     }
 }
 
@@ -2247,8 +2331,10 @@ footer {
     .timeline::before {
         left: 1.25rem;
     }
+    .mission-card {
+        padding: 2.5rem 1.5rem;
+    }
 }
-
 .social-icons {
     display: flex;
     gap: 15px;

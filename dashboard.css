@@ -535,6 +535,11 @@ tr:hover td {
     }
 }
 
+/* Dashboard Hamburger Toggle (Visible on Mobile Only) */
+.dash-hamburger {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .metrics-grid {
         grid-template-columns: 1fr;
@@ -553,5 +558,32 @@ tr:hover td {
     
     .profile-settings-grid {
         grid-template-columns: 1fr;
+    }
+
+    .dash-hamburger {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        color: var(--text-main);
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        margin-right: 1rem;
+        transition: var(--transition-smooth);
+    }
+
+    .dash-hamburger:hover {
+        border-color: var(--primary);
+        color: var(--primary);
+        box-shadow: 0 0 10px rgba(0, 240, 255, 0.2);
+    }
+
+    /* Style inner SVG */
+    .dash-hamburger svg {
+        width: 20px;
+        height: 20px;
     }
 }
