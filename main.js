@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQ();
     initTestimonialSlider();
     initGlobalButtonRedirects();
+    initPasswordToggles();
 });
 
 /* 1. Loader Logic */
@@ -144,13 +145,8 @@ function initTestimonialSlider() {
 /* 6. Global Button & CTA Redirects to 404 */
 function initGlobalButtonRedirects() {
     document.addEventListener('click', (e) => {
-        // Disable 404 redirects on dashboard pages
-        if (window.location.pathname.includes('dashboard')) {
-            return;
-        }
-
-        // Find if user clicked a button, submit input, or anchor styled as button
-        const target = e.target.closest('button, a, input[type="submit"]');
+        // Find if user clicked a button, submit input, anchor styled as button, or notification bell
+        const target = e.target.closest('button, a, input[type="submit"], .notification-bell');
         if (!target) return;
 
         // Check exemptions list:
@@ -158,26 +154,32 @@ function initGlobalButtonRedirects() {
         if (target.classList.contains('logo') || target.closest('.logo')) return;
 
         // 2. Navigation items
-        const isNavLoginBtn = target.id === 'nav-login-btn' || target.closest('#nav-login-btn');
-        const isNavSignupBtn = target.id === 'nav-signup-btn' || target.closest('#nav-signup-btn');
+        const isNavLoginBtn = target.id === 'nav-login-btn' || target.closest('#nav-login-btn') || target.id === 'nav-login-btn-mobile' || target.closest('#nav-login-btn-mobile');
+        const isNavSignupBtn = target.id === 'nav-signup-btn' || target.closest('#nav-signup-btn') || target.id === 'nav-signup-btn-mobile' || target.closest('#nav-signup-btn-mobile');
         const isNavbarLink = target.closest('.nav-links') && target.tagName === 'A';
         const isFooterNavLink = target.closest('.footer-nav-links') && target.tagName === 'A';
 
         // 3. Authentications Form Submits (handled by auth.js)
-        const isAuthSubmit = target.id === 'auth-login-submit' || target.id === 'auth-signup-submit' || target.id === 'logout-btn' || target.closest('#logout-btn');
+        const isAuthSubmit = target.id === 'auth-login-submit' || target.id === 'auth-signup-submit' || target.id === 'logout-btn' || target.closest('#logout-btn') || target.classList.contains('logout-btn') || target.closest('.logout-btn');
         const isAuthToggleLink = target.closest('.auth-footer') && target.tagName === 'A';
 
         // 4. Custom 404 Go to Home
         const isGoHome = target.id === 'home-btn' || target.classList.contains('go-home-btn');
 
         // 5. Mobile Hamburger toggles
-        const isHamburger = target.classList.contains('hamburger') || target.closest('.hamburger');
+        const isHamburger = target.classList.contains('hamburger') || target.closest('.hamburger') || target.classList.contains('dash-hamburger') || target.closest('.dash-hamburger');
 
-        // 6. Dashboard navigation tabs & sidebar toggles
-        const isDashboardMenu = target.closest('.sidebar-menu-item') || target.closest('.sidebar-toggle') || target.closest('.user-profile-widget');
+        // 6. Dashboard navigation tabs & sidebar toggles & overlay
+        const isDashboardMenu = target.closest('.sidebar-menu-item') || target.closest('.sidebar-toggle') || target.closest('.user-profile-widget') || target.closest('.sidebar-overlay') || target.closest('#sidebar-overlay');
 
         // 7. Slider arrow buttons (Testimonials)
         const isSliderArrow = target.classList.contains('slider-arrow') || target.closest('.slider-arrow');
+
+        // 8. Password Toggle (Show/Hide Password)
+        const isPasswordToggle = target.classList.contains('password-toggle') || target.closest('.password-toggle');
+
+        // 9. User Support Ticket Form
+        const isSupportSubmit = target.closest('#user-ticket-form');
 
         // Combined Exemptions
         if (
@@ -190,7 +192,9 @@ function initGlobalButtonRedirects() {
             isGoHome || 
             isHamburger || 
             isDashboardMenu ||
-            isSliderArrow
+            isSliderArrow ||
+            isPasswordToggle ||
+            isSupportSubmit
         ) {
             return; // Allow default navigation/logic
         }
@@ -301,5 +305,27 @@ function clearInlineErrors(form) {
     form.querySelectorAll('.form-error-msg').forEach(el => el.remove());
     form.querySelectorAll('input, textarea, select').forEach(el => {
         el.style.borderColor = '';
+    });
+}
+
+/* 8. Password Toggle Visibility */
+function initPasswordToggles() {
+    document.querySelectorAll('.password-toggle').forEach(toggleBtn => {
+        toggleBtn.addEventListener('click', () => {
+            const input = toggleBtn.parentNode.querySelector('input');
+            if (!input) return;
+            
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            
+            // Toggle icon
+            const icon = toggleBtn.querySelector('i');
+            if (icon) {
+                icon.setAttribute('data-lucide', isPassword ? 'eye-off' : 'eye');
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
+            }
+        });
     });
 }

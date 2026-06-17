@@ -36,12 +36,22 @@
 
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" placeholder="At least 6 characters" required>
+                <div style="position: relative;">
+                    <input type="password" id="password" placeholder="At least 6 characters" required style="padding-right: 2.75rem;">
+                    <button type="button" class="password-toggle" aria-label="Toggle Password Visibility" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; outline: none; z-index: 10;">
+                        <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="form-group">
                 <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" placeholder="Re-enter password" required>
+                <div style="position: relative;">
+                    <input type="password" id="confirm-password" placeholder="Re-enter password" required style="padding-right: 2.75rem;">
+                    <button type="button" class="password-toggle" aria-label="Toggle Confirm Password Visibility" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; outline: none; z-index: 10;">
+                        <i data-lucide="eye" style="width: 18px; height: 18px;"></i>
+                    </button>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-primary" id="auth-signup-submit" style="width: 100%; margin-top: 1rem;">Sign Up</button>
