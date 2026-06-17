@@ -311,20 +311,19 @@ function clearInlineErrors(form) {
 /* 8. Password Toggle Visibility */
 function initPasswordToggles() {
     document.querySelectorAll('.password-toggle').forEach(toggleBtn => {
-        toggleBtn.addEventListener('click', () => {
+        toggleBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
             const input = toggleBtn.parentNode.querySelector('input');
             if (!input) return;
             
             const isPassword = input.type === 'password';
             input.type = isPassword ? 'text' : 'password';
             
-            // Toggle icon
-            const icon = toggleBtn.querySelector('i');
-            if (icon) {
-                icon.setAttribute('data-lucide', isPassword ? 'eye-off' : 'eye');
-                if (typeof lucide !== 'undefined') {
-                    lucide.createIcons();
-                }
+            // Re-render Lucide icon inside the button safely
+            toggleBtn.innerHTML = `<i data-lucide="${isPassword ? 'eye-off' : 'eye'}" style="width: 18px; height: 18px;"></i>`;
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
             }
         });
     });
